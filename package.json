@@ -1,0 +1,22 @@
+{
+  "name": "donot-reply",
+  "version": "1.0.0",
+  "description": "This app is designed to make it easy for developers to send automated emails to multiple recipients.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "donot-reply",
+    "autoEmailSender"
+  ],
+  "author": "Harshit",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.6"
+  }
+}
