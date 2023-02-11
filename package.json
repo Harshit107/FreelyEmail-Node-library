@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This app is designed to make it easy for developers to send automated emails to multiple recipients.",
   "main": "app.js",
+  "github" : "https://github.com/Harshit107/donot-reply-node-library.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
