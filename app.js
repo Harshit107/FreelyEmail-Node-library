@@ -1,7 +1,7 @@
 // const publicEmailSender = require('./src/mailer.js')
 const fetch = require('node-fetch');
 const testDomain = "http://localhost:3000/public/email/notification";
-const domain = "https://send.donot-reply.online/";
+const domain = "https://send.donot-reply.online/"; // changed
 let OTP = domain + "public/email/otpverification";
 const NORMAL_EMAIL = domain +"public/email/notification";
 
