@@ -1,66 +1,105 @@
 // const publicEmailSender = require('./src/mailer.js')
 const fetch = require('node-fetch');
-const testDomain = "http://localhost:3000/public/email/notification";
-const domain = "https://send.donot-reply.online/"; // changed
-let OTP = domain + "public/email/otpverification";
+const testDomain = "http://localhost:3000/";
+const domain = "https://email.api.harshit107.tech/"; // changed
+
+let OTP = domain + "public/email/verification/otp";
+let OTPRequest = domain + "public/email/verification/otp/request";
 const NORMAL_EMAIL = domain +"public/email/notification";
 
-const sendNormalEmail =  async function (appName,subject,recipientsEmail,senderEmail, message, HTMLfile) {
+const sendEmail = async function (  app,  subject,  recipient,  replyTo,  sender,  message,  HTMLfile) {
+  const msgBody = {
+    app,
+    subject,
+    recipient,
+    replyTo,
+    sender,
+    message,
+    HTMLfile,
+  };
 
-    const msgBody = {
-        "appName" : appName,
-        "subject" : subject,
-        "recipientsEmail" : recipientsEmail,
-        "senderEmail" : senderEmail,
-        "emailContent" : message,
-        "HTMLfile" : HTMLfile
-    }
+  const res = await fetch(NORMAL_EMAIL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(msgBody),
+  });
 
-    const res = await fetch(NORMAL_EMAIL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(msgBody)
-    });
+  const fRes = await res.json();
+  return fRes;
+};
 
-    const fRes = await res.json();
-    return fRes;
-    
-}
+const sendOTP = async function (  app,  subject,  recipient,  replyTo,  sender,  otp, withValidTime, HTMLfile ) {
+  const msgBody = {
+    app,
+    subject,
+    recipient,
+    replyTo,
+    sender,
+    otp,
+    withValidTime,
+    HTMLfile,
+  };
 
-const sendOTP =  async function (appName,subject,recipientsEmail,senderEmail, otp, withValidTime) {
+  const res = await fetch(OTP, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(msgBody),
+  });
 
-    const msgBody = {
-        "appName" : appName,
-        "subject" : subject,
-        "recipientsEmail" : recipientsEmail,
-        "senderEmail" : senderEmail,
-        "otp" : otp,
-        "withValidTime" : withValidTime
-    }
+  const fRes = await res.json();
+  console.log(fRes);
+  return fRes;
+};
 
-    const res = await fetch(OTP, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(msgBody)
-    });
 
-    const fRes = await res.json();
-    console.log(fRes);
-    return fRes;
-    
-}
+
+// ---------------- Request OTP````````````````
+
+const sendOTPRequest = async function (
+  app,
+  subject,
+  recipient,
+  replyTo,
+  sender,
+  withValidTime,
+) {
+  const msgBody = {
+    app,
+    subject,
+    recipient,
+    replyTo,
+    sender,
+    withValidTime,
+  };
+
+  const res = await fetch(OTPRequest, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(msgBody),
+  });
+
+  const fRes = await res.json();
+  console.log(fRes);
+  return fRes;
+};
+
 
 const EmailSender = {
-    sendNormalEmail,
-    sendOTP
-}
+  sendEmail,
+  sendOTP,
+  sendOTPRequest
+};
 
 
-// sendOTP("mmt", "This is just a testing email", "harshituem@gmail.com","deadline","12345","5");
+//sendEmail("mmt", "This is just a testing email", "harshit107.in@gmail.com","harshit107.in.2022@gmail.com","deadline","12345");
+// sendOTP("mmt", "This is just a testing email", "harshit107.in@gmail.com","harshit107.in.2022@gmail.com","verification","12345",10);
+// sendOTPRequest("mmt", "This is just a testing email", "harshit107.in@gmail.com","harshit107.in.2022@gmail.com","OTPRequest",10);
 
 module.exports = EmailSender
 
