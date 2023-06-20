@@ -1,7 +1,7 @@
 {
-  "name": "donot-reply",
-  "version": "1.0.0",
-  "description": "This app is designed to make it easy for developers to send automated emails to multiple recipients.",
+  "name": "freely-email",
+  "version": "1.0.2",
+  "description": "This Library is designed to make it easy for developers to send automated emails to multiple recipients.",
   "main": "app.js",
   "github" : "https://github.com/Harshit107/freelyEmail-Node-library.git",
   "scripts": {
@@ -9,8 +9,11 @@
     "dev": "nodemon app.js"
   },
   "keywords": [
+    "free Email",
+    "Freely-Email",
+    "Mail","Email","Mailer",
     "FreelyEmail",
-    "autoEmailSender"
+    "Auto Email Sender"
   ],
   "author": "Harshit",
   "license": "ISC",

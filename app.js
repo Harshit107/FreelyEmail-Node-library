@@ -1,5 +1,6 @@
 // const publicEmailSender = require('./src/mailer.js')
 const fetch = require('node-fetch');
+
 const testDomain = "http://localhost:3000/";
 const domain = "https://email.api.harshit107.tech/"; // changed
 
