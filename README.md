@@ -17,6 +17,7 @@ It also come with Android and Node Js library which reduces the effort of managi
 
 ## Library 
 
+
   ### Simple Email With / Without Html file
   A Simple Email with/without Html file
   Example
@@ -37,20 +38,23 @@ It also come with Android and Node Js library which reduces the effort of managi
     .catch(err => {})
 
   ```
-  * Follow Same step for OTP
-    - Send OTP throught mail by calling method name : "sendOTP"
-    - Request OTP throught mail by calling method name : "sendOTPRequest"
-
 
 ## Base api structure  :https://email.api.harshit107.tech/YOUR-API-REQUEST
 
-  How to send a simple email using FreelyEmail-Library
-  Step 1 : Import FreelyEmail-Library
-  Step 2 : Create a new email body with given parameters
-  step 3 : Call type of action 
+  * How to send a simple email using FreelyEmail-Library
+    * Step 1 : Import FreelyEmail-Library
+    * Step 2 : Create a new email body with given parameters
+    * step 3 : Call type of action 
+  - 
+  *  Supported Action 
+    *  sendEmail 
+    *  sendOTP,
+    *  sendOTPRequest,
+    *  sendLink
+
 
   
-  #### * Action : Simple Email :  https://email.api.harshit107.tech/public/email/notification
+  ## Action : Simple Email :  https://email.api.harshit107.tech/public/email/notification
 
   ```
    * Request Type : POST
@@ -76,11 +80,11 @@ It also come with Android and Node Js library which reduces the effort of managi
 
   ```
 
-
-
-  
+   - 
+   - 
+   - 
    
-  #### * Action : Email Containing OTP : https://email.api.harshit107.tech/public/email/verification/otp
+  ## Action : Email Containing OTP : https://email.api.harshit107.tech/public/email/verification/otp
   ```
    * Request Type : POST
    * Body : {  sender,recipient, replyTo,  app, subject, otp, withValidTime,HTMLfile}
@@ -101,7 +105,7 @@ It also come with Android and Node Js library which reduces the effort of managi
         "HTMLfile" : HTMLFile
     }
   ```
-  # Response
+  ### Response
   
   Every Request will have object as response which will contain `data and error`.
   
@@ -125,11 +129,11 @@ It also come with Android and Node Js library which reduces the effort of managi
   ```
   Status code  : 400.
 
+   - 
+   - 
+   - 
 
-
-
-   
-  #### * Action: Request Auto OTP Email : https://email.api.harshit107.tech/public/email/verification/otp/request
+  ## Action: Request Auto OTP Email : https://email.api.harshit107.tech/public/email/verification/otp/request
   This action automatically generates an OTP in server and sends it to the recipient, with the OTP being received in the response.
   ```
    * Request Type : POST
@@ -149,7 +153,7 @@ It also come with Android and Node Js library which reduces the effort of managi
         "withValidTime" : withValidTime, // Optional 
     }
   ```
-  # Response
+  ### Response
   
   Every Request will have object as response which will contain `data and error`.
   
@@ -172,13 +176,11 @@ It also come with Android and Node Js library which reduces the effort of managi
   
   ```
   Status code  : 400.
-  
+   - 
+   - 
+   - 
 
-
-
-  
-   
-  #### * Action : Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
+  ##  Action : Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
   ```
    * Request Type : POST
    * Body : {  sender,recipient, replyTo,  app, subject, link, withValidTime,HTMLfile}
@@ -199,7 +201,7 @@ It also come with Android and Node Js library which reduces the effort of managi
         "HTMLfile" : HTMLFile
     }
   ```
-  # Response
+  ### Response
   
   Every Request will have object as response which will contain `data and error`.
   
@@ -223,8 +225,13 @@ It also come with Android and Node Js library which reduces the effort of managi
   ```
   Status code  : 400.
  
+- 
+- 
 
-## Installation -------------   ( only for those who want to contribute )    --------------
+
+
+
+# Installation :  ( only for those who want to contribute )  
 
 Install my-project with npm
 

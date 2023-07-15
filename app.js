@@ -7,6 +7,8 @@ const domain = "https://email.api.harshit107.tech/"; // changed
 let OTP = domain + "public/email/verification/otp";
 let OTPRequest = domain + "public/email/verification/otp/request";
 const NORMAL_EMAIL = domain + "public/email/notification";
+let LINK = domain + "public/email/verification/link";
+
 
 const sendEmail = async function (data) {
   // const msgBody = {
@@ -81,10 +83,37 @@ const sendOTPRequest = async function (data) {
   return fRes;
 };
 
+
+const sendLink = async function (data) {
+  // const msgBody = {
+  //   app,
+  //   subject,
+  //   recipient,
+  //   replyTo,
+  //   sender,
+  //   otp,
+  //   withValidTime,
+  //   HTMLfile,
+  // };
+
+  const res = await fetch(LINK, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const fRes = await res.json();
+  console.log(fRes);
+  return fRes;
+};
+
 const EmailSender = {
   sendEmail,
   sendOTP,
   sendOTPRequest,
+  sendLink
 };
 
 module.exports = EmailSender;
