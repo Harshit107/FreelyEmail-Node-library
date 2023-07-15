@@ -45,8 +45,8 @@ It also come with Android and Node Js library which reduces the effort of managi
     * Step 1 : Import FreelyEmail-Library
     * Step 2 : Create a new email body with given parameters
     * step 3 : Call type of action 
-  - 
-  *  Supported Action 
+  
+  * Supported Action 
     *  sendEmail 
     *  sendOTP,
     *  sendOTPRequest,
@@ -54,7 +54,9 @@ It also come with Android and Node Js library which reduces the effort of managi
 
 
   
-  ## Action : Simple Email :  https://email.api.harshit107.tech/public/email/notification
+  ## Action : Simple Email :
+
+  * API :  https://email.api.harshit107.tech/public/email/notification
 
   ```
    * Request Type : POST
@@ -84,7 +86,9 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
    - 
    
-  ## Action : Email Containing OTP : https://email.api.harshit107.tech/public/email/verification/otp
+  ## Action : Email Containing OTP : 
+    * API : https://email.api.harshit107.tech/public/email/verification/otp
+
   ```
    * Request Type : POST
    * Body : {  sender,recipient, replyTo,  app, subject, otp, withValidTime,HTMLfile}
@@ -133,7 +137,8 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
    - 
 
-  ## Action: Request Auto OTP Email : https://email.api.harshit107.tech/public/email/verification/otp/request
+  ## Action: Request Auto OTP Email :
+  * API : https://email.api.harshit107.tech/public/email/verification/otp/request
   This action automatically generates an OTP in server and sends it to the recipient, with the OTP being received in the response.
   ```
    * Request Type : POST
@@ -180,7 +185,8 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
    - 
 
-  ##  Action : Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
+  ##  Action :
+  * API :  Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
   ```
    * Request Type : POST
    * Body : {  sender,recipient, replyTo,  app, subject, link, withValidTime,HTMLfile}
