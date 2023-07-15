@@ -44,8 +44,14 @@ It also come with Android and Node Js library which reduces the effort of managi
 
 ## Base api structure  :https://email.api.harshit107.tech/YOUR-API-REQUEST
 
+  How to send a simple email using FreelyEmail-Library
+  Step 1 : Import FreelyEmail-Library
+  Step 2 : Create a new email body with given parameters
+  step 3 : Call type of action 
+
   
-  #### * Send Simple Email :  https://email.api.harshit107.tech/public/email/notification
+  #### * Action : Simple Email :  https://email.api.harshit107.tech/public/email/notification
+
   ```
    * Request Type : POST
    * Body : { sender, recipient, replyTo, app, subject, message, HTMLfile }
@@ -55,7 +61,7 @@ It also come with Android and Node Js library which reduces the effort of managi
     * sender email should not contain any domain, we will add @donot-reply.online at the end.
     * Example : 
    ``` JavaScript
-   const sendingObject = {
+   const emailBody = {
       "recipient" : "Email Address to whom you want to send Email", //  use Array of String for multiple email
       "app" : "Your App Name", 
       "replyTo" : "Your contact Email " // User can directly reply to this email
@@ -64,10 +70,17 @@ It also come with Android and Node Js library which reduces the effort of managi
       "message" : "Email Message",  //your Email containt
       "HTMLfile" : "HTML File if you have" //must be in String and single html formate  
     } 
+    freelyEmail.sendEmail(emailBody)
+    .then( data => { })
+    .catch(err => {})
+
   ```
+
+
+
   
    
-  #### * Send OTP Email : https://email.api.harshit107.tech/public/email/verification/otp
+  #### * Action : Email Containing OTP : https://email.api.harshit107.tech/public/email/verification/otp
   ```
    * Request Type : POST
    * Body : {  sender,recipient, replyTo,  app, subject, otp, withValidTime,HTMLfile}
@@ -84,11 +97,10 @@ It also come with Android and Node Js library which reduces the effort of managi
         "replyTo" : ReplyTo
         "sender" : Sender Email,
         "otp" : otp,  // must 
-        "withValidTime" : withValidTime, // not necessary 
+        "withValidTime" : withValidTime, // Optional 
         "HTMLfile" : HTMLFile
     }
   ```
-  
   # Response
   
   Every Request will have object as response which will contain `data and error`.
@@ -112,11 +124,13 @@ It also come with Android and Node Js library which reduces the effort of managi
   
   ```
   Status code  : 400.
-  
-  
-  
+
+
+
+
    
-  #### * Request Auto OTP Email : https://email.api.harshit107.tech/public/email/verification/otp/request
+  #### * Action: Request Auto OTP Email : https://email.api.harshit107.tech/public/email/verification/otp/request
+  This action automatically generates an OTP in server and sends it to the recipient, with the OTP being received in the response.
   ```
    * Request Type : POST
    * Body : {  sender, recipient, replyTo, app, subject, withValidTime}
@@ -135,7 +149,6 @@ It also come with Android and Node Js library which reduces the effort of managi
         "withValidTime" : withValidTime, // Optional 
     }
   ```
-  
   # Response
   
   Every Request will have object as response which will contain `data and error`.
@@ -160,6 +173,55 @@ It also come with Android and Node Js library which reduces the effort of managi
   ```
   Status code  : 400.
   
+
+
+
+  
+   
+  #### * Action : Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
+  ```
+   * Request Type : POST
+   * Body : {  sender,recipient, replyTo,  app, subject, link, withValidTime,HTMLfile}
+ ```
+  * Note : 
+    * parameter must have same name as mentioned above
+    * sender email should not contain any domain, we will add @donot-reply.online at the end.
+    * Example : 
+   ``` JavaScript
+  const msgBody = {
+        "app" : App Name,
+        "subject" : Subject,
+        "recipient" : recipients Email,
+        "replyTo" : ReplyTo
+        "sender" : Sender Email,
+        "link" : link,  // must 
+        "withValidTime" : withValidTime, // Optional 
+        "HTMLfile" : HTMLFile
+    }
+  ```
+  # Response
+  
+  Every Request will have object as response which will contain `data and error`.
+  
+  ### Success
+  ``` JavaScript
+  {
+    data : "Message Id",
+    error : {}
+  }
+  
+  ```
+  Status code  : 200.
+  
+  ### Error
+  ``` JavaScript
+  {
+    data : {},
+    error : "Error Reason"
+  }
+  
+  ```
+  Status code  : 400.
  
 
 ## Installation -------------   ( only for those who want to contribute )    --------------
