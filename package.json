@@ -1,6 +1,6 @@
 {
   "name": "freely-email",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "This Library is designed to make it easy for developers to send automated emails to multiple recipients.",
   "main": "app.js",
   "github" : "https://github.com/Harshit107/freelyEmail-Node-library.git",

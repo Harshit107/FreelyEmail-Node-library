@@ -11,22 +11,15 @@ let LINK = domain + "public/email/verification/link";
 
 
 const sendEmail = async function (data) {
-  // const msgBody = {
-  //   app,
-  //   subject,
-  //   recipient,
-  //   replyTo,
-  //   sender,
-  //   message,
-  //   HTMLfile,
-  // };
+  if(!data)
+    throw new Error("Enter valid email body");
 
   const res = await fetch(NORMAL_EMAIL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(data),
   });
 
   const fRes = await res.json();
@@ -34,16 +27,8 @@ const sendEmail = async function (data) {
 };
 
 const sendOTP = async function (data) {
-  // const msgBody = {
-  //   app,
-  //   subject,
-  //   recipient,
-  //   replyTo,
-  //   sender,
-  //   otp,
-  //   withValidTime,
-  //   HTMLfile,
-  // };
+
+  if (!data) throw new Error("Enter valid email body");
 
   const res = await fetch(OTP, {
     method: "POST",
@@ -54,21 +39,14 @@ const sendOTP = async function (data) {
   });
 
   const fRes = await res.json();
-  console.log(fRes);
   return fRes;
 };
 
 // ---------------- Request OTP````````````````
 
 const sendOTPRequest = async function (data) {
-  // const msgBody = {
-  //   app,
-  //   subject,
-  //   recipient,
-  //   replyTo,
-  //   sender,
-  //   withValidTime,
-  // };
+
+  if (!data) throw new Error("Enter valid email body");
 
   const res = await fetch(OTPRequest, {
     method: "POST",
@@ -79,33 +57,24 @@ const sendOTPRequest = async function (data) {
   });
 
   const fRes = await res.json();
-  console.log(fRes);
   return fRes;
 };
 
 
 const sendLink = async function (data) {
-  // const msgBody = {
-  //   app,
-  //   subject,
-  //   recipient,
-  //   replyTo,
-  //   sender,
-  //   otp,
-  //   withValidTime,
-  //   HTMLfile,
-  // };
 
+  if (!data) throw new Error("Enter valid email body");
+  
   const res = await fetch(LINK, {
+
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
-
+  
   const fRes = await res.json();
-  console.log(fRes);
   return fRes;
 };
 

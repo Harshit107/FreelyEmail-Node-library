@@ -87,7 +87,8 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
    
   ## Action : Email Containing OTP : 
-    * API : https://email.api.harshit107.tech/public/email/verification/otp
+
+  * API : https://email.api.harshit107.tech/public/email/verification/otp
 
   ```
    * Request Type : POST
@@ -138,8 +139,9 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
 
   ## Action: Request Auto OTP Email :
+
   * API : https://email.api.harshit107.tech/public/email/verification/otp/request
-  This action automatically generates an OTP in server and sends it to the recipient, with the OTP being received in the response.
+  * This action automatically generates an OTP in server and sends it to the recipient, with the OTP being received in the response.
   ```
    * Request Type : POST
    * Body : {  sender, recipient, replyTo, app, subject, withValidTime}
@@ -185,7 +187,8 @@ It also come with Android and Node Js library which reduces the effort of managi
    - 
    - 
 
-  ##  Action :
+  ## Action :
+
   * API :  Email Containing Link : https://email.api.harshit107.tech/public/email/verification/link
   ```
    * Request Type : POST
