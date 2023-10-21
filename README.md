@@ -39,7 +39,7 @@ It also come with Android and Node Js library which reduces the effort of managi
 
   ```
 
-## Base api structure  :https://email.api.harshit107.tech/YOUR-API-REQUEST
+* Base api structure  :https://email.api.harshit107.in/request-type
 
   * How to send a simple email using FreelyEmail-Library
     * Step 1 : Import FreelyEmail-Library

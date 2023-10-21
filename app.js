@@ -1,4 +1,3 @@
-// const publicEmailSender = require('./src/mailer.js')
 const fetch = require("node-fetch");
 
 const domain = "https://email.api.harshit107.in/"; // changed
@@ -40,7 +39,6 @@ const sendOTP = async function (data) {
 };
 
 
-
 const sendLink = async function (data) {
 
   if (!data) throw new Error("Enter valid email body");
@@ -59,7 +57,6 @@ const sendLink = async function (data) {
 const EmailSender = {
   sendEmail,
   sendOTP,
-  sendOTPRequest,
   sendLink
 };
 
