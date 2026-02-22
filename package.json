@@ -2,7 +2,8 @@
   "name": "freely-email",
   "version": "1.1.0",
   "description": "This Library is designed to make it easy for developers to send automated emails to multiple recipients. Minimum Node version 18 is required.",
-  "main": "app.js",
+  "main": "src/index.js",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=18.0.0"
   },
