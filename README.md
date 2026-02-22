@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>freelyEmail 🤖 ✉️</h1>
-  <p>A simple, powerful, and scalable email-sending SDK native for Node.js using <a href="https://github.com/Harshit107/FreelyEmail-API">FreelyEmail-API</a>.</p>
+  <h1>freelyEmail 🤖 ✉️ by Harshit</h1>
+  <p>A simple, powerful, and scalable email-sending SDK native for Node.js, built with ❤️ by <strong>Harshit Keshari (<a href="https://github.com/Harshit107">Harshit107</a>)</strong>. Connects effortlessly to the <a href="https://github.com/Harshit107/FreelyEmail-API">FreelyEmail-API</a>.</p>
 </div>
 
 ![License](https://img.shields.io/npm/l/freely-email)
@@ -9,7 +9,47 @@
 
 **Version Requirement**: Node.js `>= 18.0.0` (Uses native fetch, 0 dependencies).
 
+## ✨ Architecture Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant App as Client App (Developer)
+    participant SDK as FreelyEmail Client SDK
+    participant NativeFetch as Node.js Native Fetch
+    participant Router as API /src/routes
+    participant Controller as API /src/controllers
+    participant Service as API /src/services
+    participant SMTP as Sendinblue SMTP
+    participant DB as MongoDB
+
+    App->>SDK: new FreelyEmailClient()
+    Note over App,SDK: Developer initiates the SDK (TypeScript supported)
+    
+    App->>SDK: sendOTP({ sender: "auth", ... })
+    SDK->>NativeFetch: RequestManager checks payload, sends HTTP POST to /api/v1/emails/otp/send
+    
+    NativeFetch->>Router: HTTP POST payload arrives
+    Router->>Controller: Route matches, passes to sendOtp() layer
+    
+    Controller->>Controller: catchAsync & Validator check payload fields
+    alt If Validation Fails
+        Controller-->>SDK: 400 Bad Request
+        SDK-->>App: throws FreelyEmailAPIError
+    end
+    
+    Controller->>Service: payload valid, sendMail(...)
+    Service->>SMTP: Connects via nodemailer & sends HTML email
+    SMTP-->>Service: msgId returned
+    
+    Service->>DB: Log the transaction asynchronously (saveEmailRecord)
+    
+    Controller-->>NativeFetch: 200 OK { success: true, messageId: ... }
+    NativeFetch-->>SDK: Parse JSON payload
+    SDK-->>App: Return Successful APIResponse
+```
+
 ## 🚀 Features
+- **Created by Harshit**: Maintainable open-source library explicitly crafted by Harshit107.
 - **Object-Oriented Design**: Instantiate the `FreelyEmailClient` and go.
 - **Robust Error Handling**: Distinct Custom Errors (`FreelyEmailAPIError`) for robust backend integrations.
 - **TypeScript Support**: Full code-completion and Type definitions included out-of-the-box.
