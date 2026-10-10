@@ -1,9 +1,23 @@
-export class FreelyEmailAPIError extends Error {
-  status: number;
-  details: any;
+export interface APIErrorPayload {
+  errorCode: string;
+  message: string;
+  details?: any;
 }
 
-export class FreelyEmailValidationError extends Error {}
+export class FreelyEmailAPIError extends Error {
+  status: number;
+  errorCode: string;
+  details: any;
+  error: APIErrorPayload;
+  constructor(errorOrMessage: string | Partial<APIErrorPayload>, status?: number, details?: any);
+}
+
+export class FreelyEmailValidationError extends Error {
+  errorCode: string;
+  details?: any;
+  error: APIErrorPayload;
+  constructor(message: string, errorCode?: string, details?: any);
+}
 
 export interface SDKConfig {
   /** Override the default API base URL */
@@ -53,11 +67,29 @@ export interface LinkVerificationPayload extends BaseEmailPayload {
   HTMLfile?: string;
 }
 
-export interface APIResponse {
+export interface APIResponse<T = any> {
   success: boolean;
-  data: any;
-  error: string | null;
+  data: T;
+  message?: string;
+  error: APIErrorPayload | null;
 }
+
+export interface APIEndpoints {
+  readonly HEALTH: string;
+  readonly SEND: string;
+  readonly SEND_EMAIL: string;
+  readonly OTP_SEND: string;
+  readonly OTP_REQUEST: string;
+  readonly LINK_VERIFICATION: string;
+  readonly SEND_LINK: string;
+}
+
+export const DEFAULT_BASE_URL: string;
+export const API_ENDPOINTS: APIEndpoints;
+export const SUCCESS_MESSAGES: Record<string, string>;
+export const ERROR_CODES: Record<string, string>;
+export const ERROR_MESSAGES: Record<string, string>;
+
 
 export class FreelyEmailClient {
   constructor(config?: SDKConfig);
