@@ -84,6 +84,14 @@ export interface APIEndpoints {
   readonly SEND_LINK: string;
 }
 
+export interface EcosystemUrls {
+  readonly LOGGER_API: string;
+  readonly LOGGER_UI: string;
+  readonly MAIL_API: string;
+  readonly SHOWCASE_UI: string;
+}
+
+export const ECOSYSTEM_URLS: EcosystemUrls;
 export const DEFAULT_BASE_URL: string;
 export const API_ENDPOINTS: APIEndpoints;
 export const SUCCESS_MESSAGES: Record<string, string>;

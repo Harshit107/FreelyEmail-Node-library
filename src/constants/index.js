@@ -2,7 +2,14 @@
  * Centralized constants, API endpoints, error definitions, and success messages for FreelyEmail SDK
  */
 
-const DEFAULT_BASE_URL = "https://email.api.harshit107.in/api/v1/emails/";
+const ECOSYSTEM_URLS = Object.freeze({
+  LOGGER_API: "https://logger-api.harshit107.online",
+  LOGGER_UI: "https://logger.harshit107.online",
+  MAIL_API: "https://freelyemail-api.harshit107.online",
+  SHOWCASE_UI: "https://freelyemail.harshit107.online",
+});
+
+const DEFAULT_BASE_URL = `${ECOSYSTEM_URLS.MAIL_API}/api/v1/emails/`;
 
 const API_ENDPOINTS = Object.freeze({
   HEALTH: "../health",
@@ -54,6 +61,7 @@ const ERROR_MESSAGES = Object.freeze({
 });
 
 module.exports = {
+  ECOSYSTEM_URLS,
   DEFAULT_BASE_URL,
   API_ENDPOINTS,
   SUCCESS_MESSAGES,
