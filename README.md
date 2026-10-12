@@ -1,6 +1,14 @@
 <div align="center">
   <h1>freelyEmail 🤖 ✉️ by Harshit</h1>
-  <p>A simple, powerful, and scalable email-sending SDK native for Node.js, built with ❤️ by <strong>Harshit Keshari (<a href="https://github.com/Harshit107">Harshit107</a>)</strong>. Connects effortlessly to the <a href="https://github.com/Harshit107/FreelyEmail-API">FreelyEmail-API</a>.</p>
+  <p>A simple, powerful, and scalable email-sending SDK native for Node.js, built with ❤️ by <strong>Harshit Keshari (<a href="https://github.com/Harshit107">Harshit107</a>)</strong>.</p>
+  <p>Part of the <strong>FreelyEmail Ecosystem</strong>:</p>
+  <p>
+    <a href="https://github.com/Harshit107/FreelyEmail-API"><strong>Core Email API</strong></a> &bull;
+    <a href="https://github.com/Harshit107/FreelyEmail-Node-library"><strong>Node SDK</strong></a> &bull;
+    <a href="https://github.com/Harshit107/central-logging-service"><strong>Central Logging Service</strong></a> &bull;
+    <a href="https://github.com/Harshit107/logging-dashboard"><strong>Logging Dashboard</strong></a> &bull;
+    <a href="https://github.com/Harshit107/FreelyEmail-Showcase"><strong>Showcase Portal</strong></a>
+  </p>
 </div>
 
 ![License](https://img.shields.io/npm/l/freely-email)
